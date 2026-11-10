@@ -6,47 +6,90 @@
 <meta name="theme-color" content="#d982a3">
 <title>Guarda-Roupa Digital</title>
 <style>
-  :root {
-    --pink-50:  #fff8fa;
-    --pink-100: #fff0f5;
-    --pink-200: #f9e1e9;
-    --pink-300: #f3d5df;
-    --pink-400: #edc4d2;
-    --pink-500: #d982a3;
-    --pink-600: #c96a8d;
-    --pink-700: #98516e;
-    --text:     #754054;
-    --text-soft:#a47d8b;
-    --danger:   #d46b88;
-    --success:  #2e8b57;
-    --radius:   14px;
-    --shadow:   0 2px 10px rgba(217, 130, 163, .12);
+  /* ============================================================
+     TEMAS
+     ============================================================ */
+  :root, [data-theme="rosa"] {
+    --pink-50:  #fff8fa; --pink-100: #fff0f5; --pink-200: #f9e1e9;
+    --pink-300: #f3d5df; --pink-400: #edc4d2; --pink-500: #d982a3;
+    --pink-600: #c96a8d; --pink-700: #98516e; --text: #754054;
+    --text-soft:#a47d8b; --danger: #d46b88; --success: #2e8b57;
+    --surface: #ffffff; --header-grad-1: #f7c6d5; --toast-bg: #3a2530;
+    --radius: 14px; --shadow: 0 2px 10px rgba(217, 130, 163, .12);
   }
+  [data-theme="verde"] {
+    --pink-50:  #f6fbf7; --pink-100: #eef8f0; --pink-200: #d9efdd;
+    --pink-300: #c1e4c7; --pink-400: #a5d6ad; --pink-500: #5ba86e;
+    --pink-600: #4a8f5b; --pink-700: #356b43; --text: #2d5539;
+    --text-soft:#7fa088; --danger: #d46b88; --success: #2e8b57;
+    --surface: #ffffff; --header-grad-1: #b5e0c0; --toast-bg: #243b2c;
+    --shadow: 0 2px 10px rgba(91, 168, 110, .12);
+  }
+  [data-theme="roxo"] {
+    --pink-50:  #faf7ff; --pink-100: #f5efff; --pink-200: #e8dcfb;
+    --pink-300: #d9c6f7; --pink-400: #c6aaf0; --pink-500: #9673d6;
+    --pink-600: #7f5cc0; --pink-700: #5f3f95; --text: #4a3468;
+    --text-soft:#8a7ba3; --danger: #d46b88; --success: #2e8b57;
+    --surface: #ffffff; --header-grad-1: #d9c6f7; --toast-bg: #3a2a52;
+    --shadow: 0 2px 10px rgba(150, 115, 214, .12);
+  }
+  [data-theme="azul"] {
+    --pink-50:  #f7faff; --pink-100: #eff5ff; --pink-200: #dce8fb;
+    --pink-300: #c3d6f7; --pink-400: #a8c2f0; --pink-500: #5b8bd9;
+    --pink-600: #4573c2; --pink-700: #335796; --text: #284270;
+    --text-soft:#7a8caa; --danger: #d46b88; --success: #2e8b57;
+    --surface: #ffffff; --header-grad-1: #b5d0f5; --toast-bg: #1f3356;
+    --shadow: 0 2px 10px rgba(91, 139, 217, .12);
+  }
+  [data-theme="bege"] {
+    --pink-50:  #fdfbf7; --pink-100: #faf6ef; --pink-200: #f0e8da;
+    --pink-300: #e4d7c2; --pink-400: #d6c4a8; --pink-500: #b89a72;
+    --pink-600: #a1835c; --pink-700: #7a6243; --text: #5f4d34;
+    --text-soft:#a3947d; --danger: #c46b58; --success: #5b8a4a;
+    --surface: #ffffff; --header-grad-1: #e8dcc5; --toast-bg: #4a3b28;
+    --shadow: 0 2px 10px rgba(184, 154, 114, .14);
+  }
+  [data-theme="preto"] {
+    --pink-50:  #2a2a2e; --pink-100: #1a1a1d; --pink-200: #3a3a40;
+    --pink-300: #4a4a52; --pink-400: #5e5e68; --pink-500: #8e8e9a;
+    --pink-600: #a5a5b0; --pink-700: #d0d0d8; --text: #ececf0;
+    --text-soft:#9a9aa5; --danger: #e08a9c; --success: #6bc98e;
+    --surface: #333339; --header-grad-1: #3a3a40; --toast-bg: #0f0f12;
+    --shadow: 0 2px 10px rgba(0, 0, 0, .5);
+  }
+  [data-theme="branco"] {
+    --pink-50:  #fafbfc; --pink-100: #f2f4f8; --pink-200: #e8ebf1;
+    --pink-300: #d9dee7; --pink-400: #c5ccd8; --pink-500: #8b93a3;
+    --pink-600: #727a8a; --pink-700: #4e5666; --text: #3a4150;
+    --text-soft:#8a92a0; --danger: #c46b72; --success: #4a8f5b;
+    --surface: #ffffff; --header-grad-1: #e3e7ee; --toast-bg: #3a4150;
+    --shadow: 0 2px 10px rgba(0, 0, 0, .08);
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; background: var(--pink-100); }
   body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background: var(--pink-100);
-    color: var(--text);
-    padding: 16px;
-    min-height: 100dvh;
-    line-height: 1.45;
+    background: var(--pink-100); color: var(--text); padding: 16px;
+    min-height: 100dvh; line-height: 1.45;
+    transition: background-color .3s ease, color .3s ease;
   }
   button, input, select, label { font: inherit; }
   button {
     cursor: pointer; border: none;
     transition: transform .12s ease, background-color .18s ease, box-shadow .18s ease;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
   }
   button:active:not(:disabled) { transform: scale(.97); }
   button:focus-visible, input:focus-visible, select:focus-visible, label:focus-visible {
     outline: 3px solid var(--pink-500); outline-offset: 2px;
   }
+  
   header {
-    background: linear-gradient(135deg, #f7c6d5, var(--pink-100));
-    padding: 24px 20px; border-radius: 22px; margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--header-grad-1), var(--pink-100));
+    padding: 24px 68px 24px 20px; border-radius: 22px; margin-bottom: 20px;
     box-shadow: var(--shadow); position: relative; overflow: hidden;
+    transition: background .3s ease;
   }
   header::after {
     content: ""; position: absolute; inset: -40% -20% auto auto;
@@ -57,222 +100,147 @@
   header h1 { font-size: clamp(20px, 5vw, 26px); margin-bottom: 8px; }
   header p  { font-size: 14px; color: var(--pink-700); }
   header .emoji { font-size: 44px; float: right; margin-left: 10px; }
+
+  .settings-btn {
+    position: absolute; top: 16px; right: 16px; width: 42px; height: 42px;
+    border-radius: 50%; background: var(--surface); color: var(--text);
+    font-size: 20px; display: grid; place-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12); z-index: 3;
+    transition: transform .12s ease, background-color .18s ease;
+  }
+  .settings-btn:hover { background: var(--pink-200); transform: rotate(30deg); }
+
   section {
     background: var(--pink-50); border: 1px solid var(--pink-300);
     border-radius: 18px; padding: 16px; margin-bottom: 18px; box-shadow: var(--shadow);
+    transition: background-color .3s ease, border-color .3s ease;
   }
   h2 { font-size: 20px; margin-bottom: 6px; }
   .subtitle { color: var(--text-soft); font-size: 13px; margin-bottom: 15px; }
-  .tabs {
-    display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 12px;
-    scrollbar-width: none; -webkit-overflow-scrolling: touch;
-  }
+  
+  .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab {
-    background: white; border: 1px solid var(--pink-400); border-radius: 22px;
-    padding: 10px 16px; color: var(--pink-700); white-space: nowrap;
-    font-size: 13px; display: inline-flex; align-items: center; gap: 6px;
+    background: var(--surface); border: 1px solid var(--pink-400); border-radius: 22px;
+    padding: 10px 16px; color: var(--pink-700); white-space: nowrap; font-size: 13px;
+    display: inline-flex; align-items: center; gap: 6px;
   }
-  .tab .badge {
-    background: var(--pink-200); color: var(--pink-700);
-    font-size: 11px; padding: 1px 7px; border-radius: 10px; font-weight: 600;
-  }
-  .tab.active {
-    background: var(--pink-500); color: white; border-color: var(--pink-500);
-    box-shadow: 0 4px 12px rgba(217,130,163,.35);
-  }
+  .tab .badge { background: var(--pink-200); color: var(--pink-700); font-size: 11px; padding: 1px 7px; border-radius: 10px; font-weight: 600; }
+  .tab.active { background: var(--pink-500); color: white; border-color: var(--pink-500); }
   .tab.active .badge { background: rgba(255,255,255,.28); color: white; }
-  .primary {
-    background: var(--pink-500); color: white; border-radius: 12px;
-    padding: 12px 18px; font-weight: 600; font-size: 14px;
-  }
+  
+  .primary { background: var(--pink-500); color: white; border-radius: 12px; padding: 12px 18px; font-weight: 600; font-size: 14px; }
   .primary:hover:not(:disabled) { background: var(--pink-600); }
-  .secondary {
-    background: var(--pink-200); color: var(--pink-700); border-radius: 12px;
-    padding: 11px 14px; font-size: 13px; font-weight: 500;
-  }
+  .secondary { background: var(--pink-200); color: var(--pink-700); border-radius: 12px; padding: 11px 14px; font-size: 13px; font-weight: 500; }
   .secondary:hover:not(:disabled) { background: var(--pink-300); }
   button:disabled { opacity: .5; cursor: not-allowed; }
-  .top-actions {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 8px; margin: 6px 0 15px; flex-wrap: wrap;
-  }
+  
+  .top-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 6px 0 15px; flex-wrap: wrap; }
   #count { font-size: 13px; color: var(--text-soft); }
   #clothes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  
   .clothing {
-    background: white; border: 1px solid var(--pink-300); border-radius: var(--radius);
-    overflow: hidden; display: flex; flex-direction: column;
-    transition: box-shadow .18s ease; position: relative;
+    background: var(--surface); border: 1px solid var(--pink-300); border-radius: var(--radius);
+    overflow: hidden; display: flex; flex-direction: column; position: relative;
   }
-  .clothing:hover { box-shadow: var(--shadow); }
   .clothing.selected { border-color: var(--pink-500); box-shadow: 0 0 0 3px rgba(217,130,163,.35); }
   .clothing.selected::before {
-    content: "✓"; position: absolute; top: 8px; right: 8px;
-    width: 26px; height: 26px; border-radius: 50%;
-    background: var(--pink-500); color: white;
-    display: grid; place-items: center; font-size: 14px; font-weight: 700;
-    z-index: 2; box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    content: "✓"; position: absolute; top: 8px; right: 8px; width: 26px; height: 26px;
+    border-radius: 50%; background: var(--pink-500); color: white;
+    display: grid; place-items: center; font-size: 14px; font-weight: 700; z-index: 2;
   }
-  .clothing img {
-    width: 100%; height: 140px; object-fit: cover;
-    background: var(--pink-200); display: block;
-  }
-  .clothing-info {
-    padding: 10px; display: flex; flex-direction: column; flex: 1; gap: 4px;
-  }
-  .clothing-info h3 {
-    font-size: 14px; margin: 0; overflow: hidden;
-    text-overflow: ellipsis; white-space: nowrap;
-  }
-  .clothing-info .cat {
-    font-size: 11px; color: var(--text-soft); background: var(--pink-100);
-    padding: 2px 8px; border-radius: 8px; align-self: flex-start; margin-bottom: 4px;
-  }
+  .clothing img { width: 100%; height: 140px; object-fit: cover; background: var(--pink-200); display: block; }
+  .clothing-info { padding: 10px; display: flex; flex-direction: column; flex: 1; gap: 4px; }
+  .clothing-info h3 { font-size: 14px; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .clothing-info .cat { font-size: 11px; color: var(--text-soft); background: var(--pink-100); padding: 2px 8px; border-radius: 8px; align-self: flex-start; margin-bottom: 4px; }
   .clothing-info .actions { display: flex; gap: 6px; margin-top: auto; }
   .clothing-info .actions button { flex: 1; padding: 9px; font-size: 12px; }
-  .delete {
-    color: var(--danger); background: transparent; padding: 8px;
-    border-radius: 10px; font-size: 12px; font-weight: 600;
-  }
-  .delete:hover { background: #fdeaf0; }
+  .delete { color: var(--danger); background: transparent; padding: 8px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+  .delete:hover { background: var(--pink-100); }
   .full { width: 100%; }
-  #addForm {
-    background: white; padding: 18px; border-radius: var(--radius);
-    margin-bottom: 15px; border: 1px solid var(--pink-300);
-    animation: slideDown .25s ease;
-  }
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  
+  #addForm { background: var(--surface); padding: 18px; border-radius: var(--radius); margin-bottom: 15px; border: 1px solid var(--pink-300); }
   #addForm h3 { font-size: 16px; margin-bottom: 4px; }
-  #addForm .close-btn {
-    float: right; background: var(--pink-200); color: var(--pink-700);
-    width: 30px; height: 30px; border-radius: 50%; font-size: 16px; line-height: 1;
-  }
-  label {
-    display: block; font-size: 13px; font-weight: 600;
-    margin: 14px 0 6px; color: var(--pink-700);
-  }
-  input[type="text"], select {
-    width: 100%; padding: 12px; border: 1px solid var(--pink-400);
-    border-radius: 10px; background: white; color: var(--text); font-size: 16px;
-  }
+  #addForm .close-btn { float: right; background: var(--pink-200); color: var(--pink-700); width: 30px; height: 30px; border-radius: 50%; font-size: 16px; line-height: 1; }
+  
+  label { display: block; font-size: 13px; font-weight: 600; margin: 14px 0 6px; color: var(--pink-700); }
+  input[type="text"], select { width: 100%; padding: 12px; border: 1px solid var(--pink-400); border-radius: 10px; background: var(--surface); color: var(--text); font-size: 16px; }
   input[type="text"]:focus, select:focus { border-color: var(--pink-500); }
+  
   .photo-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .photo-buttons label {
-    background: var(--pink-200); color: var(--pink-700);
-    border-radius: 12px; padding: 14px 6px; text-align: center; cursor: pointer;
-    margin: 0; font-weight: 500; transition: background .18s ease;
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-  }
+  .photo-buttons label { background: var(--pink-200); color: var(--pink-700); border-radius: 12px; padding: 14px 6px; text-align: center; cursor: pointer; margin: 0; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px; }
   .photo-buttons label:hover { background: var(--pink-300); }
   .photo-buttons input { display: none; }
-  #preview {
-    text-align: center; margin: 14px 0; padding: 12px;
-    background: var(--pink-50); border-radius: 12px; border: 1px dashed var(--pink-400);
-  }
+  
+  #preview { text-align: center; margin: 14px 0; padding: 12px; background: var(--pink-50); border-radius: 12px; border: 1px dashed var(--pink-400); }
   #preview img { max-width: 100%; max-height: 180px; border-radius: 10px; margin-bottom: 6px; }
   #preview p { font-size: 12px; color: var(--text-soft); }
-  #preview .change-photo {
-    background: transparent; color: var(--danger); font-size: 12px;
-    text-decoration: underline; padding: 4px; margin-top: 4px;
-  }
+  #preview .change-photo { background: transparent; color: var(--danger); font-size: 12px; text-decoration: underline; padding: 4px; margin-top: 4px; }
+  
   .look-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .look-item { text-align: center; }
   .look-item h3 { font-size: 13px; margin-bottom: 7px; color: var(--pink-700); }
-  .lookslot {
-    background: white; border: 2px dashed var(--pink-400); border-radius: 12px;
-    min-height: 125px; display: flex; justify-content: center; align-items: center;
-    font-size: 40px; overflow: hidden; transition: border-color .18s ease; position: relative;
-  }
+  .lookslot { background: var(--surface); border: 2px dashed var(--pink-400); border-radius: 12px; min-height: 125px; display: flex; justify-content: center; align-items: center; font-size: 40px; overflow: hidden; position: relative; }
   .lookslot.filled { border-style: solid; border-color: var(--pink-500); }
   .lookslot img { width: 100%; height: 125px; object-fit: cover; }
-  .lookslot .remove-slot {
-    position: absolute; top: 4px; right: 4px;
-    background: rgba(255,255,255,.92); color: var(--danger); border-radius: 50%;
-    width: 26px; height: 26px; font-size: 14px; line-height: 1;
-    display: grid; place-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.15);
-  }
+  .lookslot .remove-slot { position: absolute; top: 4px; right: 4px; background: rgba(255,255,255,.92); color: var(--danger); border-radius: 50%; width: 26px; height: 26px; font-size: 14px; line-height: 1; display: grid; place-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+  
   .look-buttons { display: flex; gap: 8px; margin-top: 16px; }
   .look-buttons button { flex: 1; }
+  
   #savedLooks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .saved-card {
-    background: white; border: 1px solid var(--pink-300);
-    padding: 10px; border-radius: 12px;
-  }
+  .saved-card { background: var(--surface); border: 1px solid var(--pink-300); padding: 10px; border-radius: 12px; }
   .saved-images { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; margin-bottom: 8px; }
-  .saved-images img {
-    width: 100%; height: 75px; object-fit: cover;
-    border-radius: 6px; background: var(--pink-100);
-  }
+  .saved-images img { width: 100%; height: 75px; object-fit: cover; border-radius: 6px; background: var(--pink-100); }
   .saved-card h3 { font-size: 13px; margin-bottom: 8px; color: var(--pink-700); }
   .saved-card .delete { width: 100%; background: var(--pink-100); }
+  
   .empty { text-align: center; padding: 32px 8px; color: var(--text-soft); font-size: 13px; grid-column: 1 / -1; }
   .empty .big { font-size: 44px; display: block; margin-bottom: 8px; }
-  .message {
-    text-align: center; font-size: 13px; margin-top: 12px;
-    color: var(--text-soft); min-height: 18px;
-  }
-  .message.ok    { color: var(--success); font-weight: 600; }
-  .message.error { color: var(--danger);  font-weight: 600; }
-  #aiStylist .ai-result {
-    margin-top: 16px; background: white; border: 1px solid var(--pink-300);
-    border-radius: var(--radius); padding: 16px;
-  }
-  #aiStylist .ai-result:not([hidden]) { animation: slideDown .3s ease; }
+  .message { text-align: center; font-size: 13px; margin-top: 12px; color: var(--text-soft); min-height: 18px; }
+  .message.ok { color: var(--success); font-weight: 600; }
+  .message.error { color: var(--danger); font-weight: 600; }
+  
+  #aiStylist .ai-result { margin-top: 16px; background: var(--surface); border: 1px solid var(--pink-300); border-radius: var(--radius); padding: 16px; }
   #aiStylist .ai-result h3 { font-size: 15px; margin-bottom: 8px; color: var(--pink-700); }
-  #aiStylist .ai-result p {
-    font-size: 13px; color: var(--text-soft);
-    margin-bottom: 12px; line-height: 1.55;
-  }
+  #aiStylist .ai-result p { font-size: 13px; color: var(--text-soft); margin-bottom: 12px; line-height: 1.55; }
   #aiStylist .ai-result p strong { color: var(--pink-700); }
   #aiPieces { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; margin-bottom: 12px; }
-  .ai-piece {
-    background: var(--pink-50); border: 1px solid var(--pink-300);
-    border-radius: 10px; overflow: hidden; text-align: center;
-  }
+  .ai-piece { background: var(--pink-50); border: 1px solid var(--pink-300); border-radius: 10px; overflow: hidden; text-align: center; }
   .ai-piece img { width: 100%; height: 96px; object-fit: cover; display: block; background: var(--pink-100); }
-  .ai-piece .ai-cat {
-    display: block; font-size: 10px; font-weight: 600; color: var(--pink-700);
-    background: var(--pink-100); padding: 2px 4px;
-  }
-  .ai-piece .ai-name {
-    display: block; font-size: 11px; padding: 6px 4px; color: var(--text);
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .ai-piece .ai-color {
-    display: flex; align-items: center; justify-content: center; gap: 4px;
-    font-size: 10px; color: var(--text-soft); padding: 0 4px 6px;
-    text-transform: capitalize;
-  }
-  .ai-color-dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    border: 1px solid rgba(0,0,0,.12); flex-shrink: 0;
-  }
-  #aiStylist input[type="text"], #aiStylist select { margin-bottom: 0; }
-  #aiStylist label:first-of-type { margin-top: 4px; }
-  #toast {
-    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120%);
-    background: #3a2530; color: white; padding: 12px 20px; border-radius: 30px;
-    font-size: 13px; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,.25);
-    transition: transform .3s cubic-bezier(.2,.9,.3,1.2);
-    z-index: 100; max-width: calc(100% - 40px); text-align: center;
-  }
+  .ai-piece .ai-cat { display: block; font-size: 10px; font-weight: 600; color: var(--pink-700); background: var(--pink-100); padding: 2px 4px; }
+  .ai-piece .ai-name { display: block; font-size: 11px; padding: 6px 4px; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ai-piece .ai-color { display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 10px; color: var(--text-soft); padding: 0 4px 6px; text-transform: capitalize; }
+  .ai-color-dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(0,0,0,.12); flex-shrink: 0; }
+  
+  #toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120%); background: var(--toast-bg); color: white; padding: 12px 20px; border-radius: 30px; font-size: 13px; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,.25); transition: transform .3s cubic-bezier(.2,.9,.3,1.2); z-index: 100; max-width: calc(100% - 40px); text-align: center; }
   #toast.show { transform: translate(-50%, 0); }
   #toast.error { background: var(--danger); }
+
+  /* MODAL DE CONFIGURAÇÕES */
+  .overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, .45); z-index: 90; display: grid; place-items: center; padding: 16px; }
+  .overlay[hidden] { display: none; }
+  .settings-panel { background: var(--surface); color: var(--text); border-radius: 20px; padding: 22px; width: 100%; max-width: 420px; max-height: 85dvh; overflow-y: auto; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+  .settings-panel h2 { font-size: 19px; margin-bottom: 4px; }
+  .settings-panel .close-btn { position: absolute; top: 14px; right: 14px; background: var(--pink-200); color: var(--pink-700); width: 32px; height: 32px; border-radius: 50%; font-size: 18px; line-height: 1; display: grid; place-items: center; }
+  .theme-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 18px 0; }
+  .theme-option { background: var(--pink-50); border: 2px solid var(--pink-300); border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--text); text-align: left; }
+  .theme-option:hover { border-color: var(--pink-500); }
+  .theme-option.active { border-color: var(--pink-500); background: var(--pink-100); box-shadow: 0 0 0 3px color-mix(in srgb, var(--pink-500) 25%, transparent); }
+  .theme-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(0, 0, 0, .12); flex-shrink: 0; }
+
   @media (min-width: 650px) {
     body { max-width: 860px; margin: auto; }
     #clothes { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   }
 </style>
 </head>
 <body>
 
 <header>
+  <button class="settings-btn" id="openSettings" aria-label="Abrir configurações">
+    <span aria-hidden="true">⚙️</span>
+  </button>
   <span class="emoji" aria-hidden="true">👗</span>
   <h1>Guarda-Roupa Digital ♡</h1>
   <p>Seu estilo, suas escolhas!</p>
@@ -308,12 +276,8 @@
     <input type="text" id="pieceName" maxlength="60" placeholder="Ex.: Vestido florido" autocomplete="off">
     <label>Foto da roupa:</label>
     <div class="photo-buttons">
-      <label><span aria-hidden="true">📷</span> Tirar foto
-        <input type="file" id="camera" accept="image/*" capture="environment" aria-label="Tirar foto da roupa">
-      </label>
-      <label><span aria-hidden="true">🖼️</span> Galeria
-        <input type="file" id="gallery" accept="image/*" aria-label="Escolher foto da galeria">
-      </label>
+      <label><span aria-hidden="true">📷</span> Tirar foto <input type="file" id="camera" accept="image/*" capture="environment"></label>
+      <label><span aria-hidden="true">🖼️</span> Galeria <input type="file" id="gallery" accept="image/*"></label>
     </div>
     <div id="preview" hidden>
       <img id="previewImg" alt="Pré-visualização da roupa">
@@ -330,10 +294,10 @@
   <h2 id="h-look">Monte seu look ✨</h2>
   <p class="subtitle">Escolha suas roupas e monte combinações.</p>
   <div class="look-grid">
-    <div class="look-item"><h3>Camisa</h3><div class="lookslot" id="slot-Camisas" data-slot="Camisas" aria-label="Camisa selecionada">👚</div></div>
-    <div class="look-item"><h3>Parte de baixo</h3><div class="lookslot" id="slot-bottom" data-slot="bottom" aria-label="Parte de baixo selecionada">👖</div></div>
-    <div class="look-item"><h3>Tênis</h3><div class="lookslot" id="slot-Tênis" data-slot="Tênis" aria-label="Tênis selecionado">👟</div></div>
-    <div class="look-item"><h3>Vestido</h3><div class="lookslot" id="slot-Vestidos" data-slot="Vestidos" aria-label="Vestido selecionado">👗</div></div>
+    <div class="look-item"><h3>Camisa</h3><div class="lookslot" id="slot-Camisas" data-slot="Camisas">👚</div></div>
+    <div class="look-item"><h3>Parte de baixo</h3><div class="lookslot" id="slot-bottom" data-slot="bottom">👖</div></div>
+    <div class="look-item"><h3>Tênis</h3><div class="lookslot" id="slot-Tênis" data-slot="Tênis">👟</div></div>
+    <div class="look-item"><h3>Vestido</h3><div class="lookslot" id="slot-Vestidos" data-slot="Vestidos">👗</div></div>
   </div>
   <p class="message">Selecione as peças no guarda-roupa. O vestido substitui camisa + parte de baixo.</p>
   <div class="look-buttons">
@@ -383,58 +347,80 @@
   <div id="savedLooks"></div>
 </section>
 
+<div id="settingsOverlay" class="overlay" hidden>
+  <div class="settings-panel" role="dialog" aria-modal="true">
+    <button class="close-btn" id="closeSettings" aria-label="Fechar configurações">×</button>
+    <h2>⚙️ Configurações</h2>
+    <p class="subtitle">Personalize o tema de cores do seu guarda-roupa.</p>
+    <h3 style="font-size:15px;margin-top:8px;">🎨 Tema de cores</h3>
+    <div class="theme-grid" id="themeGrid"></div>
+    <button class="primary full" id="applyTheme">✓ Aplicar tema</button>
+  </div>
+</div>
+
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (() => {
   "use strict";
 
-  const STORAGE_KEY   = "guardaRoupa.v3";
-  const MAX_PIECES    = 120;
-  const MAX_FILE_MB   = 8;
-  const MAX_IMG_SIDE  = 600;
-  const IMG_QUALITY   = 0.72;
-  const MAX_COMBOS    = 800;
+  const STORAGE_KEY = "guardaRoupa.v3";
+  const THEME_KEY = "guardaRoupa.theme";
+  const MAX_PIECES = 120;
+  const MAX_FILE_MB = 8;
+  const MAX_IMG_SIDE = 600;
+  const IMG_QUALITY = 0.72;
+  const MAX_COMBOS = 800;
+  const LOOK_SLOTS = ["Vestidos", "Camisas", "bottom", "Tênis"];
+  const SLOT_EMOJI = { Camisas: "👚", bottom: "👖", Tênis: "👟", Vestidos: "👗" };
 
-  const LOOK_SLOTS  = ["Vestidos", "Camisas", "bottom", "Tênis"];
-  const SLOT_EMOJI  = { Camisas: "👚", bottom: "👖", Tênis: "👟", Vestidos: "👗" };
-
-  const state = {
-    clothes: [],
-    selected: {},
-    savedLooks: [],
-    currentCategory: "Todos",
-    pendingPhoto: ""
+  const THEMES = {
+    rosa:   { label: "Rosa",   swatch: "#d982a3" },
+    verde:  { label: "Verde",  swatch: "#5ba86e" },
+    roxo:   { label: "Roxo",   swatch: "#9673d6" },
+    azul:   { label: "Azul",   swatch: "#5b8bd9" },
+    bege:   { label: "Bege",   swatch: "#b89a72" },
+    preto:  { label: "Preto",  swatch: "#3a3a40" },
+    branco: { label: "Branco", swatch: "#c8ccd4" }
   };
 
+  const state = { clothes: [], selected: {}, savedLooks: [], currentCategory: "Todos", pendingPhoto: "" };
   const $ = id => document.getElementById(id);
 
-  /* ============================================================
-     HELPERS
-     ============================================================ */
-  const escapeHTML = text => String(text).replace(/[&<>"']/g, c => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  })[c]);
-
-  const uid = () =>
-    (typeof crypto !== "undefined" && crypto.randomUUID)
-      ? crypto.randomUUID()
-      : "id-" + Date.now().toString(36) + Math.random().toString(36).slice(2);
-
-  const slotFor = cat => {
-    if (cat === "Camisas")  return "Camisas";
-    if (cat === "Tênis")    return "Tênis";
-    if (cat === "Vestidos") return "Vestidos";
-    return "bottom";
-  };
-
+  const escapeHTML = text => String(text).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const uid = () => crypto.randomUUID ? crypto.randomUUID() : "id-" + Date.now().toString(36) + Math.random().toString(36).slice(2);
+  const slotFor = cat => cat === "Camisas" ? "Camisas" : cat === "Tênis" ? "Tênis" : cat === "Vestidos" ? "Vestidos" : "bottom";
   const vibrate = (ms = 8) => { try { navigator.vibrate?.(ms); } catch {} };
 
-  /* ============================================================
-     ⭐ NOVO: ANÁLISE DE COR
-     ============================================================ */
+  let currentTheme = localStorage.getItem(THEME_KEY) || "rosa";
+  let tempTheme = currentTheme;
 
-  /** Extrai a cor dominante da imagem (ignorando o fundo estimado pela borda). */
+  function renderThemeOptions() {
+    $("themeGrid").innerHTML = Object.entries(THEMES).map(([key, theme]) => `
+      <button class="theme-option ${key === tempTheme ? 'active' : ''}" data-theme="${key}">
+        <span class="theme-dot" style="background:${theme.swatch}"></span>${theme.label}
+      </button>
+    `).join("");
+  }
+
+  function openSettings() {
+    tempTheme = currentTheme;
+    renderThemeOptions();
+    $("settingsOverlay").hidden = false;
+  }
+
+  function closeSettings() {
+    $("settingsOverlay").hidden = true;
+    document.documentElement.dataset.theme = currentTheme;
+  }
+
+  function toast(msg, type = "ok") {
+    const el = $("toast");
+    el.textContent = msg;
+    el.className = "show" + (type === "error" ? " error" : "");
+    setTimeout(() => { el.className = ""; }, 2600);
+  }
+
   async function extractDominantColor(dataURL) {
     return new Promise((resolve) => {
       const img = new Image();
@@ -442,75 +428,41 @@
         try {
           const SAMPLE = 80;
           const canvas = document.createElement("canvas");
-          canvas.width = SAMPLE;
-          canvas.height = SAMPLE;
+          canvas.width = SAMPLE; canvas.height = SAMPLE;
           const ctx = canvas.getContext("2d", { willReadFrequently: true });
           ctx.drawImage(img, 0, 0, SAMPLE, SAMPLE);
           const data = ctx.getImageData(0, 0, SAMPLE, SAMPLE).data;
-
-          // Estima a cor do fundo pelas bordas da imagem
           let bgR = 240, bgG = 240, bgB = 240, bgN = 0;
-          for (let y = 0; y < SAMPLE; y++) {
-            for (let x = 0; x < SAMPLE; x++) {
-              if (x < 6 || x >= SAMPLE - 6 || y < 6 || y >= SAMPLE - 6) {
-                const i = (y * SAMPLE + x) * 4;
-                if (data[i + 3] >= 128) {
-                  bgR += data[i]; bgG += data[i + 1]; bgB += data[i + 2]; bgN++;
-                }
-              }
+          for (let y = 0; y < SAMPLE; y++) for (let x = 0; x < SAMPLE; x++) {
+            if (x < 6 || x >= SAMPLE - 6 || y < 6 || y >= SAMPLE - 6) {
+              const i = (y * SAMPLE + x) * 4;
+              if (data[i + 3] >= 128) { bgR += data[i]; bgG += data[i + 1]; bgB += data[i + 2]; bgN++; }
             }
           }
           if (bgN > 0) { bgR /= bgN; bgG /= bgN; bgB /= bgN; }
-
-          // Histograma quantizado, excluindo pixels parecidos com o fundo
           const buckets = new Map();
-          let totalKept = 0;
-          for (let y = 0; y < SAMPLE; y++) {
-            for (let x = 0; x < SAMPLE; x++) {
-              const i = (y * SAMPLE + x) * 4;
-              if (data[i + 3] < 128) continue;
-              const r = data[i], g = data[i + 1], b = data[i + 2];
-
-              const dr = r - bgR, dg = g - bgG, db = b - bgB;
-              if (Math.sqrt(dr * dr + dg * dg + db * db) < 35) continue;
-
-              const key = ((r >> 4) << 8) | ((g >> 4) << 4) | (b >> 4);
-              let bucket = buckets.get(key);
-              if (!bucket) { bucket = { r: 0, g: 0, b: 0, n: 0 }; buckets.set(key, bucket); }
-              bucket.r += r; bucket.g += g; bucket.b += b; bucket.n++;
-              totalKept++;
-            }
+          for (let y = 0; y < SAMPLE; y++) for (let x = 0; x < SAMPLE; x++) {
+            const i = (y * SAMPLE + x) * 4;
+            if (data[i + 3] < 128) continue;
+            const r = data[i], g = data[i + 1], b = data[i + 2];
+            if (Math.sqrt((r - bgR)**2 + (g - bgG)**2 + (b - bgB)**2) < 35) continue;
+            const key = ((r >> 4) << 8) | ((g >> 4) << 4) | (b >> 4);
+            let bucket = buckets.get(key);
+            if (!bucket) { bucket = { r: 0, g: 0, b: 0, n: 0 }; buckets.set(key, bucket); }
+            bucket.r += r; bucket.g += g; bucket.b += b; bucket.n++;
           }
-
           let best = null;
-          for (const bucket of buckets.values()) {
-            if (!best || bucket.n > best.n) best = bucket;
-          }
-
-          // Se nada sobrou (fundo do mesmo tom da roupa), faz média geral
+          for (const bucket of buckets.values()) if (!best || bucket.n > best.n) best = bucket;
           if (!best) {
             let r = 0, g = 0, b = 0, n = 0;
             for (let i = 0; i < data.length; i += 4) {
               if (data[i + 3] < 128) continue;
               r += data[i]; g += data[i + 1]; b += data[i + 2]; n++;
             }
-            if (n > 0) {
-              return resolve({
-                r: Math.round(r / n), g: Math.round(g / n), b: Math.round(b / n)
-              });
-            }
-            return resolve({ r: 200, g: 200, b: 200 });
+            return resolve(n > 0 ? { r: Math.round(r/n), g: Math.round(g/n), b: Math.round(b/n) } : { r: 200, g: 200, b: 200 });
           }
-
-          resolve({
-            r: Math.round(best.r / best.n),
-            g: Math.round(best.g / best.n),
-            b: Math.round(best.b / best.n)
-          });
-        } catch (err) {
-          console.warn("Color extraction error:", err);
-          resolve({ r: 200, g: 200, b: 200 });
-        }
+          resolve({ r: Math.round(best.r / best.n), g: Math.round(best.g / best.n), b: Math.round(best.b / best.n) });
+        } catch { resolve({ r: 200, g: 200, b: 200 }); }
       };
       img.onerror = () => resolve({ r: 200, g: 200, b: 200 });
       img.src = dataURL;
@@ -535,125 +487,60 @@
     return { h, s: s * 100, l: l * 100 };
   }
 
-  /** Classifica a cor em tipo (neutro/cor), nome e matiz. */
   function classifyColor(color) {
     if (!color) return { type: "neutral", name: "neutro", hue: null, sat: 0, light: 50, hex: "#cccccc" };
-
     const { h, s, l } = rgbToHsl(color.r, color.g, color.b);
-    const hex = "#" + [color.r, color.g, color.b]
-      .map(v => v.toString(16).padStart(2, "0")).join("");
-
-    // Preto
+    const hex = "#" + [color.r, color.g, color.b].map(v => v.toString(16).padStart(2, "0")).join("");
     if (l < 12) return { type: "neutral", name: "preto", hue: null, sat: s, light: l, hex };
-    // Branco
     if (l > 88 && s < 15) return { type: "neutral", name: "branco", hue: null, sat: s, light: l, hex };
-    // Cinza
     if (s < 12) return { type: "neutral", name: "cinza", hue: null, sat: s, light: l, hex };
-    // Bege / marrom
-    if (s < 45 && h >= 15 && h <= 55) {
-      return {
-        type: "neutral",
-        name: l > 65 ? "bege" : "marrom",
-        hue: h, sat: s, light: l, hex
-      };
-    }
-
-    // Colorido
+    if (s < 45 && h >= 15 && h <= 55) return { type: "neutral", name: l > 65 ? "bege" : "marrom", hue: h, sat: s, light: l, hex };
     let name;
-    if (h < 15 || h >= 345) name = "vermelho";
-    else if (h < 40)  name = "laranja";
-    else if (h < 65)  name = "amarelo";
-    else if (h < 155) name = "verde";
-    else if (h < 195) name = "ciano";
-    else if (h < 255) name = "azul";
-    else if (h < 285) name = "roxo";
-    else if (h < 320) name = "violeta";
-    else              name = "rosa";
-
+    if (h < 15 || h >= 345) name = "vermelho"; else if (h < 40) name = "laranja";
+    else if (h < 65) name = "amarelo"; else if (h < 155) name = "verde";
+    else if (h < 195) name = "ciano"; else if (h < 255) name = "azul";
+    else if (h < 285) name = "roxo"; else if (h < 320) name = "violeta"; else name = "rosa";
     return { type: "color", name, hue: h, sat: s, light: l, hex };
   }
 
-  /** Pontua a harmonia entre duas cores (0 a 2.5). */
   function colorHarmonyScore(c1, c2) {
-    const a = classifyColor(c1);
-    const b = classifyColor(c2);
-
-    // Dois neutros: seguro e elegante
+    const a = classifyColor(c1), b = classifyColor(c2);
     if (a.type === "neutral" && b.type === "neutral") return 2.0;
-    // Um neutro: quase sempre funciona
     if (a.type === "neutral" || b.type === "neutral") return 2.5;
-
-    // Ambas coloridas: comparar matizes
-    const diff = Math.abs(a.hue - b.hue);
-    const d = Math.min(diff, 360 - diff);
-
-    if (d < 20) return 1.6;             // quase monocromático
-    if (d < 50) return 2.0;             // análogas
-    if (d >= 150 && d <= 210) return 2.5; // complementares
-    if (d >= 100 && d <= 150) return 1.8; // tríade / complementar dividida
-    return 0.6;                          // contraste arriscado
+    const d = Math.min(Math.abs(a.hue - b.hue), 360 - Math.abs(a.hue - b.hue));
+    if (d < 20) return 1.6; if (d < 50) return 2.0;
+    if (d >= 150 && d <= 210) return 2.5; if (d >= 100 && d <= 150) return 1.8;
+    return 0.6;
   }
 
-  /** Pontua um look inteiro (média de harmonia entre todos os pares). */
   function scoreLook(pieces) {
     if (pieces.length < 2) return 1.5;
     let total = 0, pairs = 0;
-    for (let i = 0; i < pieces.length; i++) {
-      for (let j = i + 1; j < pieces.length; j++) {
-        total += colorHarmonyScore(pieces[i].color, pieces[j].color);
-        pairs++;
-      }
+    for (let i = 0; i < pieces.length; i++) for (let j = i + 1; j < pieces.length; j++) {
+      total += colorHarmonyScore(pieces[i].color, pieces[j].color); pairs++;
     }
     return total / pairs;
   }
 
-  /** Gera uma frase poética sobre a combinação de cores. */
   function describeColors(pieces) {
     const classified = pieces.map(p => classifyColor(p.color));
-    const colors   = classified.filter(c => c.type === "color");
+    const colors = classified.filter(c => c.type === "color");
     const neutrals = classified.filter(c => c.type === "neutral");
-
-    if (colors.length === 0) {
-      return "Uma paleta totalmente neutra — elegante, atemporal e fácil de arrasar em qualquer ocasião.";
-    }
-
-    if (colors.length === 1 && neutrals.length >= 1) {
-      const cName = colors[0].name;
-      const nNames = [...new Set(neutrals.map(n => n.name))].join(" e ");
-      return `O <strong>${cName}</strong> ganha destaque, equilibrado pelo toque neutro de <strong>${nNames}</strong> — harmonia delicada e sofisticada.`;
-    }
-
-    if (colors.length === 1) {
-      return `Um look monocromático com toque de <strong>${colors[0].name}</strong> — simples e cheio de personalidade.`;
-    }
-
+    if (colors.length === 0) return "Uma paleta totalmente neutra — elegante, atemporal e fácil de arrasar em qualquer ocasião.";
+    if (colors.length === 1 && neutrals.length >= 1) return `O <strong>${colors[0].name}</strong> ganha destaque, equilibrado pelo toque neutro de <strong>${[...new Set(neutrals.map(n => n.name))].join(" e ")}</strong> — harmonia delicada e sofisticada.`;
+    if (colors.length === 1) return `Um look monocromático com toque de <strong>${colors[0].name}</strong> — simples e cheio de personalidade.`;
     if (colors.length === 2) {
-      const d = Math.abs(colors[0].hue - colors[1].hue);
-      const minD = Math.min(d, 360 - d);
-      const c1 = colors[0].name, c2 = colors[1].name;
-
-      if (minD < 40) return `As cores <strong>${c1}</strong> e <strong>${c2}</strong> são análogas — uma transição suave e muito elegante.`;
-      if (minD >= 150 && minD <= 210) return `O <strong>${c1}</strong> e o <strong>${c2}</strong> são complementares — um contraste bonito e moderno.`;
-      return `A combinação de <strong>${c1}</strong> com <strong>${c2}</strong> cria uma mistura ousada e cheia de estilo.`;
+      const minD = Math.min(Math.abs(colors[0].hue - colors[1].hue), 360 - Math.abs(colors[0].hue - colors[1].hue));
+      if (minD < 40) return `As cores <strong>${colors[0].name}</strong> e <strong>${colors[1].name}</strong> são análogas — uma transição suave e muito elegante.`;
+      if (minD >= 150 && minD <= 210) return `O <strong>${colors[0].name}</strong> e o <strong>${colors[1].name}</strong> são complementares — um contraste bonito e moderno.`;
+      return `A combinação de <strong>${colors[0].name}</strong> com <strong>${colors[1].name}</strong> cria uma mistura ousada e cheia de estilo.`;
     }
-
     return "Uma mistura colorida cheia de personalidade — perfeita para quem gosta de ousar.";
   }
 
-  /* ============================================================
-     PERSISTÊNCIA
-     ============================================================ */
   function save() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        clothes: state.clothes,
-        savedLooks: state.savedLooks
-      }));
-      return true;
-    } catch (e) {
-      console.warn("Falha ao salvar:", e);
-      return false;
-    }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ clothes: state.clothes, savedLooks: state.savedLooks })); return true; }
+    catch { return false; }
   }
 
   function load() {
@@ -662,29 +549,10 @@
       if (!raw) return;
       const data = JSON.parse(raw);
       if (Array.isArray(data.clothes)) state.clothes = data.clothes;
-      if (Array.isArray(data.savedLooks)) {
-        state.savedLooks = data.savedLooks.map(l =>
-          Array.isArray(l) ? { id: uid(), pieces: l } : l
-        );
-      }
+      if (Array.isArray(data.savedLooks)) state.savedLooks = data.savedLooks.map(l => Array.isArray(l) ? { id: uid(), pieces: l } : l);
     } catch (e) { console.warn("Falha ao carregar:", e); }
   }
 
-  /* ============================================================
-     TOAST
-     ============================================================ */
-  let toastTimer;
-  function toast(msg, type = "ok") {
-    const el = $("toast");
-    el.textContent = msg;
-    el.className = "show" + (type === "error" ? " error" : "");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { el.className = ""; }, 2600);
-  }
-
-  /* ============================================================
-     IMAGEM
-     ============================================================ */
   async function loadImageSource(file) {
     if (typeof createImageBitmap === "function") {
       try {
@@ -694,29 +562,24 @@
     }
     const url = URL.createObjectURL(file);
     try {
-      const img = await new Promise((resolve, reject) => {
-        const i = new Image();
-        i.onload = () => resolve(i);
-        i.onerror = () => reject(new Error("Imagem inválida"));
-        i.src = url;
+      const img = await new Promise((res, rej) => {
+        const i = new Image(); i.onload = () => res(i); i.onerror = () => rej(new Error("Inválida")); i.src = url;
       });
-      return { source: img, width: img.naturalWidth, height: img.naturalHeight,
-               cleanup: () => URL.revokeObjectURL(url) };
+      return { source: img, width: img.naturalWidth, height: img.naturalHeight, cleanup: () => URL.revokeObjectURL(url) };
     } catch (err) { URL.revokeObjectURL(url); throw err; }
   }
 
-  async function resizeImage(file, maxSide = MAX_IMG_SIDE, quality = IMG_QUALITY) {
+  async function resizeImage(file) {
     const { source, width, height, cleanup } = await loadImageSource(file);
     try {
-      const scale = Math.min(1, maxSide / Math.max(width, height));
-      const w = Math.max(1, Math.round(width  * scale));
-      const h = Math.max(1, Math.round(height * scale));
+      const scale = Math.min(1, MAX_IMG_SIDE / Math.max(width, height));
       const canvas = document.createElement("canvas");
-      canvas.width = w; canvas.height = h;
+      canvas.width = Math.max(1, Math.round(width * scale));
+      canvas.height = Math.max(1, Math.round(height * scale));
       const ctx = canvas.getContext("2d");
       ctx.imageSmoothingQuality = "high";
-      ctx.drawImage(source, 0, 0, w, h);
-      return canvas.toDataURL("image/jpeg", quality);
+      ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
+      return canvas.toDataURL("image/jpeg", IMG_QUALITY);
     } finally { cleanup(); }
   }
 
@@ -729,15 +592,9 @@
       $("previewImg").src = state.pendingPhoto;
       $("preview").hidden = false;
       $("savePiece").disabled = false;
-    } catch (err) {
-      console.warn(err);
-      toast("Não foi possível processar esta imagem.", "error");
-    }
+    } catch { toast("Não foi possível processar esta imagem.", "error"); }
   }
 
-  /* ============================================================
-     RENDERIZAÇÃO
-     ============================================================ */
   function renderTabs() {
     document.querySelectorAll("#tabs .tab").forEach(tab => {
       const active = tab.dataset.cat === state.currentCategory;
@@ -746,47 +603,31 @@
     });
     document.querySelectorAll("[data-count]").forEach(el => {
       const cat = el.dataset.count;
-      el.textContent = cat === "Todos"
-        ? state.clothes.length
-        : state.clothes.filter(p => p.category === cat).length;
+      el.textContent = cat === "Todos" ? state.clothes.length : state.clothes.filter(p => p.category === cat).length;
     });
   }
 
-  const emptyHTML = (emoji, text) =>
-    `<div class="empty"><span class="big" aria-hidden="true">${emoji}</span>${text}</div>`;
+  const emptyHTML = (emoji, text) => `<div class="empty"><span class="big">${emoji}</span>${text}</div>`;
 
   function renderClothes() {
-    const filtered = state.clothes.filter(p =>
-      state.currentCategory === "Todos" || p.category === state.currentCategory
-    );
+    const filtered = state.clothes.filter(p => state.currentCategory === "Todos" || p.category === state.currentCategory);
     const selectedIds = new Set(Object.values(state.selected));
-    $("count").textContent =
-      `${state.clothes.length} ${state.clothes.length === 1 ? "peça" : "peças"}`;
-
+    $("count").textContent = `${state.clothes.length} ${state.clothes.length === 1 ? "peça" : "peças"}`;
     if (filtered.length === 0) {
-      $("clothes").innerHTML = emptyHTML(
-        state.clothes.length === 0 ? "👚" : "🧺",
-        state.clothes.length === 0
-          ? "Seu guarda-roupa está vazio.<br>Adicione suas primeiras peças."
-          : "Nenhuma peça nesta categoria."
-      );
+      $("clothes").innerHTML = emptyHTML(state.clothes.length === 0 ? "👚" : "🧺", state.clothes.length === 0 ? "Seu guarda-roupa está vazio.<br>Adicione suas primeiras peças." : "Nenhuma peça nesta categoria.");
       return;
     }
-
     $("clothes").innerHTML = filtered.map(p => {
       const isSelected = selectedIds.has(p.id);
       return `
         <div class="clothing ${isSelected ? "selected" : ""}">
-          <img src="${p.photo}" alt="${escapeHTML(p.name)}" loading="lazy" decoding="async">
+          <img src="${p.photo}" alt="${escapeHTML(p.name)}" loading="lazy">
           <div class="clothing-info">
             <h3 title="${escapeHTML(p.name)}">${escapeHTML(p.name)}</h3>
             <span class="cat">${escapeHTML(p.category)}</span>
             <div class="actions">
-              <button class="secondary selectPiece" data-id="${p.id}">
-                ${isSelected ? "✓ Selecionada" : "Selecionar"}
-              </button>
-              <button class="delete deletePiece" data-id="${p.id}"
-                      aria-label="Excluir ${escapeHTML(p.name)}">🗑</button>
+              <button class="secondary selectPiece" data-id="${p.id}">${isSelected ? "✓ Selecionada" : "Selecionar"}</button>
+              <button class="delete deletePiece" data-id="${p.id}">🗑</button>
             </div>
           </div>
         </div>`;
@@ -799,13 +640,9 @@
       if (!el) return;
       const pieceId = state.selected[slot];
       const piece = pieceId ? state.clothes.find(c => c.id === pieceId) : null;
-
       if (piece) {
         el.classList.add("filled");
-        el.innerHTML = `
-          <img src="${piece.photo}" alt="${escapeHTML(piece.name)}">
-          <button class="remove-slot" data-remove="${slot}"
-                  aria-label="Remover ${escapeHTML(piece.name)}">×</button>`;
+        el.innerHTML = `<img src="${piece.photo}" alt="${escapeHTML(piece.name)}"><button class="remove-slot" data-remove="${slot}">×</button>`;
       } else {
         if (pieceId) delete state.selected[slot];
         el.classList.remove("filled");
@@ -821,416 +658,140 @@
     }
     $("savedLooks").innerHTML = state.savedLooks.map((look, i) => `
       <div class="saved-card">
-        <div class="saved-images">
-          ${look.pieces.map(p =>
-            `<img src="${p.photo}" alt="${escapeHTML(p.name)}" loading="lazy" decoding="async">`
-          ).join("")}
-        </div>
+        <div class="saved-images">${look.pieces.map(p => `<img src="${p.photo}" alt="${escapeHTML(p.name)}">`).join("")}</div>
         <h3>Look ${i + 1}</h3>
-        <button class="delete deleteLook" data-id="${look.id}"
-                aria-label="Excluir look ${i + 1}">Excluir look</button>
+        <button class="delete deleteLook" data-id="${look.id}">Excluir look</button>
       </div>
     `).join("");
   }
 
   function renderAll() { renderTabs(); renderClothes(); renderLook(); renderSavedLooks(); }
 
-  /* ============================================================
-     AÇÕES
-     ============================================================ */
   function openForm(open) {
-    const form = $("addForm");
-    form.hidden = !open;
+    $("addForm").hidden = !open;
     $("addToggle").setAttribute("aria-expanded", String(open));
     if (open) $("pieceName").focus(); else $("addToggle").focus();
   }
 
   function resetForm() {
-    $("pieceName").value = "";
-    $("camera").value = "";
-    $("gallery").value = "";
-    state.pendingPhoto = "";
-    $("preview").hidden = true;
-    $("previewImg").removeAttribute("src");
-    $("savePiece").disabled = true;
-    $("savePiece").textContent = "Salvar no guarda-roupa";
+    $("pieceName").value = ""; $("camera").value = ""; $("gallery").value = "";
+    state.pendingPhoto = ""; $("preview").hidden = true; $("previewImg").removeAttribute("src");
+    $("savePiece").disabled = true; $("savePiece").textContent = "Salvar no guarda-roupa";
   }
 
-  /** Adiciona a peça extraindo automaticamente a cor dominante da foto. */
   async function addPiece() {
     if (!state.pendingPhoto) return;
-    if (state.clothes.length >= MAX_PIECES) {
-      return toast(`Limite de ${MAX_PIECES} peças atingido.`, "error");
-    }
-
-    const category = $("category").value;
-    const name = $("pieceName").value.trim() || category;
-
-    // Estado de carregamento
+    if (state.clothes.length >= MAX_PIECES) return toast(`Limite de ${MAX_PIECES} peças atingido.`, "error");
+    const category = $("category").value, name = $("pieceName").value.trim() || category;
     const btn = $("savePiece");
-    btn.disabled = true;
-    btn.textContent = "Analisando cores…";
-
-    // Extrai a cor dominante da foto
+    btn.disabled = true; btn.textContent = "Analisando cores…";
     const color = await extractDominantColor(state.pendingPhoto);
-
     const newPiece = { id: uid(), name, category, photo: state.pendingPhoto, color };
-
     const prev = state.clothes;
     state.clothes = [newPiece, ...prev];
-
-    btn.textContent = "Salvar no guarda-roupa";
-    btn.disabled = false;
-
-    if (!save()) {
-      state.clothes = prev;
-      return toast("Armazenamento cheio! Remova peças para continuar.", "error");
-    }
-
-    state.currentCategory = "Todos";
-    resetForm();
-    openForm(false);
-    renderAll();
-    vibrate();
-
-    const detected = classifyColor(color);
-    toast(`Peça adicionada! Cor detectada: ${detected.name} 💗`);
+    btn.textContent = "Salvar no guarda-roupa"; btn.disabled = false;
+    if (!save()) { state.clothes = prev; return toast("Armazenamento cheio!", "error"); }
+    state.currentCategory = "Todos"; resetForm(); openForm(false); renderAll(); vibrate();
+    toast(`Peça adicionada! Cor: ${classifyColor(color).name} 💗`);
   }
 
   function selectPiece(id) {
     const piece = state.clothes.find(p => p.id === id);
     if (!piece) return;
     const slot = slotFor(piece.category);
-    if (state.selected[slot] === id) {
-      delete state.selected[slot];
-    } else {
-      if (slot === "Vestidos") {
-        delete state.selected.Camisas;
-        delete state.selected.bottom;
-      }
-      if (slot === "Camisas" || slot === "bottom") {
-        delete state.selected.Vestidos;
-      }
+    if (state.selected[slot] === id) delete state.selected[slot];
+    else {
+      if (slot === "Vestidos") { delete state.selected.Camisas; delete state.selected.bottom; }
+      if (slot === "Camisas" || slot === "bottom") delete state.selected.Vestidos;
       state.selected[slot] = id;
     }
-    vibrate();
-    renderClothes();
-    renderLook();
+    vibrate(); renderClothes(); renderLook();
   }
 
   function deletePiece(id) {
     const piece = state.clothes.find(p => p.id === id);
     if (!piece || !confirm(`Excluir "${piece.name}"?`)) return;
-    const prevClothes  = state.clothes;
-    const prevSelected = { ...state.selected };
+    const prevClothes = state.clothes, prevSelected = { ...state.selected };
     state.clothes = prevClothes.filter(p => p.id !== id);
-    Object.keys(state.selected).forEach(k => {
-      if (state.selected[k] === id) delete state.selected[k];
-    });
-    if (!save()) {
-      state.clothes = prevClothes;
-      state.selected = prevSelected;
-      return toast("Falha ao excluir. Tente novamente.", "error");
-    }
-    renderAll();
-    toast("Peça excluída.");
+    Object.keys(state.selected).forEach(k => { if (state.selected[k] === id) delete state.selected[k]; });
+    if (!save()) { state.clothes = prevClothes; state.selected = prevSelected; return toast("Falha ao excluir.", "error"); }
+    renderAll(); toast("Peça excluída.");
   }
 
-  let lookMsgTimer;
   function setLookMessage(text, type = "") {
-    const el = $("lookMessage");
-    el.textContent = text;
-    el.className = "message" + (type ? " " + type : "");
-    clearTimeout(lookMsgTimer);
-    if (type === "ok") {
-      lookMsgTimer = setTimeout(() => { el.className = "message"; }, 3000);
-    }
+    $("lookMessage").textContent = text;
+    $("lookMessage").className = "message " + type;
   }
 
   function saveLook() {
-    const look = LOOK_SLOTS
-      .map(slot => state.clothes.find(p => p.id === state.selected[slot]))
-      .filter(Boolean);
-    if (look.length === 0) return setLookMessage("Selecione pelo menos uma peça primeiro.", "error");
+    const look = LOOK_SLOTS.map(slot => state.clothes.find(p => p.id === state.selected[slot])).filter(Boolean);
+    if (look.length === 0) return setLookMessage("Selecione pelo menos uma peça.", "error");
     const prev = state.savedLooks;
     state.savedLooks = [{ id: uid(), pieces: look.map(p => ({ ...p })) }, ...prev];
-    if (!save()) {
-      state.savedLooks = prev;
-      return setLookMessage("Armazenamento cheio! Não foi possível salvar.", "error");
-    }
-    renderSavedLooks();
-    setLookMessage("Look salvo com sucesso! 💗", "ok");
-    vibrate();
-    toast("Look salvo!");
+    if (!save()) { state.savedLooks = prev; return setLookMessage("Erro ao salvar.", "error"); }
+    renderSavedLooks(); setLookMessage("Look salvo! 💗", "ok"); vibrate(); toast("Look salvo!");
   }
 
-  /* ============================================================
-     ⭐ IA PERSONAL STYLIST (color-aware)
-     ============================================================ */
   let aiPickedLook = null;
 
-  const OCCASION_TEXT = {
-    praia:      "ir à praia",
-    jantar:     "um jantar",
-    festa:      "uma festa",
-    viagem:     "sua viagem",
-    passeio:    "um passeio",
-    "dia-a-dia":"o dia a dia"
-  };
-
-  function buildLookPlan(occasion, weather) {
-    const plan = {
-      preferDress: false,
-      bottoms: ["Calças", "Shorts", "Saias"]
-    };
-
-    switch (occasion) {
-      case "praia":  plan.preferDress = true; plan.bottoms = ["Shorts", "Saias", "Calças"]; break;
-      case "jantar": plan.preferDress = true; plan.bottoms = ["Calças", "Saias", "Shorts"]; break;
-      case "festa":  plan.preferDress = true; plan.bottoms = ["Saias", "Calças", "Shorts"]; break;
-      case "viagem": plan.bottoms = ["Calças", "Shorts", "Saias"]; break;
-      case "passeio":plan.bottoms = ["Shorts", "Calças", "Saias"]; break;
-      default:       plan.bottoms = ["Calças", "Shorts", "Saias"];
-    }
-
-    if (weather === "frio") {
-      plan.preferDress = false;
-      plan.bottoms = ["Calças", "Saias", "Shorts"];
-    } else if (weather === "quente") {
-      plan.bottoms = ["Shorts", "Saias", "Calças"];
-    }
-    return plan;
-  }
-
-  /** Gera todas as combinações válidas de acordo com o plano. */
-  function buildCombinations(plan) {
-    const byCat = cat => state.clothes.filter(p => p.category === cat);
-    const dresses = byCat("Vestidos");
-    const tops    = byCat("Camisas");
-    const shoes   = byCat("Tênis");
-    const bottoms = [];
-    for (const cat of plan.bottoms) bottoms.push(...byCat(cat));
-
-    // Mapa de preferência (para pequeno bônus)
-    const prefBonus = (cat) => {
-      const idx = plan.bottoms.indexOf(cat);
-      return idx === 0 ? 0.25 : idx === 1 ? 0.10 : 0;
-    };
-
-    const combos = [];
-
-    const addDressCombos = () => {
-      for (const dress of dresses) {
-        if (shoes.length > 0) {
-          for (const shoe of shoes) {
-            combos.push({
-              slots: [{ slot: "Vestidos", piece: dress }, { slot: "Tênis", piece: shoe }],
-              pieces: [dress, shoe],
-              completeness: 2
-            });
-          }
-        } else {
-          combos.push({
-            slots: [{ slot: "Vestidos", piece: dress }],
-            pieces: [dress],
-            completeness: 1
-          });
-        }
-      }
-    };
-
-    // Se preferir vestido, tenta vestidos primeiro
-    if (plan.preferDress) addDressCombos();
-
-    // Combos top + bottom (+ tênis)
-    for (const top of tops) {
-      for (const bottom of bottoms) {
-        const bonus = prefBonus(bottom.category);
-        if (shoes.length > 0) {
-          for (const shoe of shoes) {
-            combos.push({
-              slots: [
-                { slot: "Camisas", piece: top },
-                { slot: "bottom", piece: bottom },
-                { slot: "Tênis", piece: shoe }
-              ],
-              pieces: [top, bottom, shoe],
-              completeness: 3,
-              bonus
-            });
-          }
-        } else {
-          combos.push({
-            slots: [
-              { slot: "Camisas", piece: top },
-              { slot: "bottom", piece: bottom }
-            ],
-            pieces: [top, bottom],
-            completeness: 2,
-            bonus
-          });
-        }
-      }
-    }
-
-    // Se não montou nada e tem vestidos, usa vestidos
-    if (combos.length === 0 && dresses.length > 0) addDressCombos();
-
-    // Se ainda nada (só tem top, ou só tenis), mostra peça única
-    if (combos.length === 0) {
-      const pools = [tops, bottoms, dresses, shoes].filter(arr => arr.length > 0);
-      for (const pool of pools) {
-        for (const piece of pool) {
-          combos.push({
-            slots: [{ slot: slotFor(piece.category), piece }],
-            pieces: [piece],
-            completeness: 1
-          });
-        }
-      }
-    }
-
-    // Limita quantidade para não explodir
-    if (combos.length > MAX_COMBOS) {
-      for (let i = combos.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [combos[i], combos[j]] = [combos[j], combos[i]];
-      }
-      combos.length = MAX_COMBOS;
-    }
-    return combos;
-  }
-
-  function renderAIPieces(slots) {
-    $("aiPieces").innerHTML = slots.map(({ piece }) => {
-      const c = classifyColor(piece.color);
-      return `
-        <div class="ai-piece">
-          <img src="${piece.photo}" alt="${escapeHTML(piece.name)}" loading="lazy" decoding="async">
-          <span class="ai-cat">${escapeHTML(piece.category)}</span>
-          <span class="ai-name" title="${escapeHTML(piece.name)}">${escapeHTML(piece.name)}</span>
-          <span class="ai-color">
-            <span class="ai-color-dot" style="background:${c.hex}"></span>${c.name}
-          </span>
-        </div>`;
-    }).join("");
-  }
-
-  function describeLook(pieces, occasion, destination, weather) {
-    const occText  = OCCASION_TEXT[occasion] || "esta ocasião";
-    const localTxt = destination ? ` em <strong>${escapeHTML(destination)}</strong>` : "";
-
-    const weatherTxt = {
-      quente: "Com o calor, priorizei peças leves e frescas.",
-      frio:   "Com o frio, escolhi peças que trazem aconchego.",
-      ameno:  "O clima ameno permite um look confortável e versátil."
-    }[weather] || "O clima permite um look versátil.";
-
-    const colorStory = describeColors(pieces);
-
-    return `Para ${occText}${localTxt}: ${weatherTxt} ${colorStory}`;
-  }
-
   async function generateAILook() {
-    const destination = $("destination").value.trim();
-    const occasion    = $("occasion").value;
-    const weather     = $("weather").value;
-
-    const resultEl      = $("aiResult");
-    const descriptionEl = $("aiDescription");
-    const useBtn        = $("useAILook");
-
+    const destination = $("destination").value.trim(), occasion = $("occasion").value, weather = $("weather").value;
+    const resultEl = $("aiResult"), descriptionEl = $("aiDescription"), useBtn = $("useAILook");
     if (state.clothes.length === 0) {
-      aiPickedLook = null;
-      descriptionEl.textContent =
-        "Seu guarda-roupa está vazio! Adicione algumas peças primeiro para eu poder criar um look.";
-      $("aiPieces").innerHTML = "";
-      useBtn.hidden = true;
-      resultEl.hidden = false;
-      return;
+      aiPickedLook = null; descriptionEl.textContent = "Adicione peças primeiro!";
+      $("aiPieces").innerHTML = ""; useBtn.hidden = true; resultEl.hidden = false; return;
     }
-
-    // Garante que todas as peças tenham cor extraída (migração automática)
     const needsColor = state.clothes.filter(p => !p.color);
     if (needsColor.length > 0) {
-      descriptionEl.textContent = "Analisando as cores das suas peças… isso leva só um instante.";
-      resultEl.hidden = false;
-      $("aiPieces").innerHTML = "";
-      useBtn.hidden = true;
-      useBtn.disabled = true;
-
-      for (const piece of needsColor) {
-        if (!piece.color) {
-          piece.color = await extractDominantColor(piece.photo);
-        }
-      }
-      save();
-      useBtn.disabled = false;
+      descriptionEl.textContent = "Analisando cores…"; resultEl.hidden = false; $("aiPieces").innerHTML = ""; useBtn.hidden = true; useBtn.disabled = true;
+      for (const p of needsColor) if (!p.color) p.color = await extractDominantColor(p.photo);
+      save(); useBtn.disabled = false;
     }
+    
+    const byCat = c => state.clothes.filter(p => p.category === c);
+    const dresses = byCat("Vestidos"), tops = byCat("Camisas"), shoes = byCat("Tênis");
+    let bottoms = [...byCat("Calças"), ...byCat("Shorts"), ...byCat("Saias")];
+    if (weather === "quente") bottoms = [...byCat("Shorts"), ...byCat("Saias"), ...byCat("Calças")];
+    if (weather === "frio") bottoms = [...byCat("Calças"), ...byCat("Saias"), ...byCat("Shorts")];
 
-    const plan = buildLookPlan(occasion, weather);
-    const combos = buildCombinations(plan);
+    const combos = [];
+    if (occasion === "praia" || occasion === "jantar" || occasion === "festa") {
+      dresses.forEach(d => shoes.length ? shoes.forEach(s => combos.push({ slots: [{slot:"Vestidos",piece:d},{slot:"Tênis",piece:s}], pieces:[d,s], comp:2 })) : combos.push({ slots: [{slot:"Vestidos",piece:d}], pieces:[d], comp:1 }));
+    }
+    tops.forEach(t => bottoms.forEach(b => shoes.length ? shoes.forEach(s => combos.push({ slots: [{slot:"Camisas",piece:t},{slot:"bottom",piece:b},{slot:"Tênis",piece:s}], pieces:[t,b,s], comp:3 })) : combos.push({ slots: [{slot:"Camisas",piece:t},{slot:"bottom",piece:b}], pieces:[t,b], comp:2 })));
+    if (combos.length === 0 && dresses.length > 0) dresses.forEach(d => combos.push({ slots: [{slot:"Vestidos",piece:d}], pieces:[d], comp:1 }));
 
     if (combos.length === 0) {
-      aiPickedLook = null;
-      descriptionEl.textContent =
-        "Não encontrei peças suficientes para montar um look. Que tal adicionar mais roupas?";
-      $("aiPieces").innerHTML = "";
-      useBtn.hidden = true;
-      resultEl.hidden = false;
-      return;
+      descriptionEl.textContent = "Não há peças suficientes."; $("aiPieces").innerHTML = ""; useBtn.hidden = true; resultEl.hidden = false; return;
     }
 
-    // Pontua cada combo: harmonia de cores + completude + bônus de preferência
-    const scored = combos.map(c => {
-      const colorScore  = scoreLook(c.pieces);
-      const completeBonus = c.completeness * 0.35;
-      const prefBonus   = c.bonus || 0;
-      return { ...c, score: colorScore + completeBonus + prefBonus };
-    });
-
-    // Ordena por pontuação
+    const scored = combos.map(c => ({ ...c, score: scoreLook(c.pieces) + (c.comp * 0.35) }));
     scored.sort((a, b) => b.score - a.score);
+    const chosen = scored[Math.floor(Math.random() * Math.min(scored.length, 4))];
 
-    // Escolhe entre os melhores (variação leve a cada geração)
-    const topScore = scored[0].score;
-    const tier = scored.filter(c => c.score >= topScore - 0.25).slice(0, 5);
-    const chosen = tier[Math.floor(Math.random() * tier.length)];
+    const weatherTxt = { quente: "Priorizei peças leves e frescas.", frio: "Escolhi peças que trazem aconchego.", ameno: "O clima permite um look versátil." }[weather];
+    const localTxt = destination ? ` em <strong>${escapeHTML(destination)}</strong>` : "";
+    descriptionEl.innerHTML = `Para ${occasion.replace("-", " ")}${localTxt}: ${weatherTxt} ${describeColors(chosen.pieces)}`;
+    
+    $("aiPieces").innerHTML = chosen.slots.map(({ piece }) => {
+      const c = classifyColor(piece.color);
+      return `<div class="ai-piece"><img src="${piece.photo}"><span class="ai-cat">${escapeHTML(piece.category)}</span><span class="ai-name">${escapeHTML(piece.name)}</span><span class="ai-color"><span class="ai-color-dot" style="background:${c.hex}"></span>${c.name}</span></div>`;
+    }).join("");
 
-    descriptionEl.innerHTML = describeLook(chosen.pieces, occasion, destination, weather);
-    renderAIPieces(chosen.slots);
-
-    aiPickedLook = chosen.slots;
-    useBtn.hidden = false;
-    resultEl.hidden = false;
-    resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    vibrate();
+    aiPickedLook = chosen.slots; useBtn.hidden = false; resultEl.hidden = false;
+    resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" }); vibrate();
   }
 
   function useAILook() {
-    if (!aiPickedLook || aiPickedLook.length === 0) return;
-    const valid = aiPickedLook.filter(({ piece }) =>
-      state.clothes.some(c => c.id === piece.id)
-    );
-    if (valid.length === 0) {
-      return toast("As peças deste look não estão mais disponíveis.", "error");
-    }
+    if (!aiPickedLook) return;
     state.selected = {};
-    valid.forEach(({ slot, piece }) => {
-      if (slot === "Vestidos") {
-        delete state.selected.Camisas;
-        delete state.selected.bottom;
-      }
-      if (slot === "Camisas" || slot === "bottom") {
-        delete state.selected.Vestidos;
-      }
+    aiPickedLook.forEach(({ slot, piece }) => {
+      if (slot === "Vestidos") { delete state.selected.Camisas; delete state.selected.bottom; }
+      if (slot === "Camisas" || slot === "bottom") delete state.selected.Vestidos;
       state.selected[slot] = piece.id;
     });
-    renderClothes();
-    renderLook();
-    setLookMessage("Look da IA aplicado! 💗", "ok");
-    toast("Look aplicado com sucesso!");
-    vibrate();
+    renderClothes(); renderLook(); setLookMessage("Look da IA aplicado! 💗", "ok");
+    toast("Look aplicado!"); vibrate();
     $("h-look").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -1239,70 +800,69 @@
      ============================================================ */
   $("addToggle").addEventListener("click", () => openForm($("addForm").hidden));
   $("closeForm").addEventListener("click", () => { openForm(false); resetForm(); });
-  ["camera", "gallery"].forEach(id =>
-    $(id).addEventListener("change", e => handleFile(e.target.files[0]))
-  );
+  ["camera", "gallery"].forEach(id => $(id).addEventListener("change", e => handleFile(e.target.files[0])));
   $("changePhoto").addEventListener("click", () => $("gallery").click());
   $("savePiece").addEventListener("click", addPiece);
 
   $("tabs").addEventListener("click", e => {
-    const tab = e.target.closest("[data-cat]");
-    if (!tab) return;
-    state.currentCategory = tab.dataset.cat;
-    renderTabs();
-    renderClothes();
+    const tab = e.target.closest("[data-cat]"); if (!tab) return;
+    state.currentCategory = tab.dataset.cat; renderTabs(); renderClothes();
   });
 
   $("clothes").addEventListener("click", e => {
-    const del = e.target.closest(".deletePiece");
-    const sel = e.target.closest(".selectPiece");
+    const del = e.target.closest(".deletePiece"), sel = e.target.closest(".selectPiece");
     if (del) return deletePiece(del.dataset.id);
     if (sel) return selectPiece(sel.dataset.id);
   });
 
   document.querySelectorAll(".lookslot").forEach(slot => {
     slot.addEventListener("click", e => {
-      const btn = e.target.closest("[data-remove]");
-      if (!btn) return;
-      delete state.selected[btn.dataset.remove];
-      renderClothes();
-      renderLook();
+      const btn = e.target.closest("[data-remove]"); if (!btn) return;
+      delete state.selected[btn.dataset.remove]; renderClothes(); renderLook();
     });
   });
 
-  $("clearLook").addEventListener("click", () => {
-    state.selected = {};
-    renderClothes();
-    renderLook();
-    setLookMessage("Look limpo! Escolha novas peças.");
-  });
-
+  $("clearLook").addEventListener("click", () => { state.selected = {}; renderClothes(); renderLook(); setLookMessage("Look limpo!"); });
   $("saveLook").addEventListener("click", saveLook);
 
   $("savedLooks").addEventListener("click", e => {
-    const btn = e.target.closest(".deleteLook");
-    if (!btn || !confirm("Excluir este look?")) return;
-    const id = btn.dataset.id;
-    const prev = state.savedLooks;
-    state.savedLooks = prev.filter(l => l.id !== id);
-    if (!save()) {
-      state.savedLooks = prev;
-      return toast("Falha ao excluir. Tente novamente.", "error");
-    }
-    renderSavedLooks();
-    toast("Look excluído.");
+    const btn = e.target.closest(".deleteLook"); if (!btn || !confirm("Excluir este look?")) return;
+    const prev = state.savedLooks; state.savedLooks = prev.filter(l => l.id !== btn.dataset.id);
+    if (!save()) { state.savedLooks = prev; return toast("Falha ao excluir.", "error"); }
+    renderSavedLooks(); toast("Look excluído.");
   });
 
   $("generateAI").addEventListener("click", generateAILook);
   $("useAILook").addEventListener("click", useAILook);
 
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && !$("addForm").hidden) { openForm(false); resetForm(); }
+  // SISTEMA DE CONFIGURAÇÕES
+  $("openSettings").addEventListener("click", openSettings);
+  $("closeSettings").addEventListener("click", closeSettings);
+  $("settingsOverlay").addEventListener("click", e => { if (e.target === $("settingsOverlay")) closeSettings(); });
+  
+  $("themeGrid").addEventListener("click", e => {
+    const btn = e.target.closest(".theme-option"); if (!btn) return;
+    tempTheme = btn.dataset.theme;
+    document.documentElement.dataset.theme = tempTheme; 
+    document.querySelectorAll(".theme-option").forEach(opt => opt.classList.toggle("active", opt.dataset.theme === tempTheme));
   });
 
-  /* ============================================================
-     BOOT
-     ============================================================ */
+  $("applyTheme").addEventListener("click", () => {
+    currentTheme = tempTheme;
+    localStorage.setItem(THEME_KEY, currentTheme);
+    closeSettings();
+    toast("Tema aplicado com sucesso! 🎨");
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      if (!$("addForm").hidden) { openForm(false); resetForm(); }
+      if (!$("settingsOverlay").hidden) closeSettings();
+    }
+  });
+
+  // INICIALIZAÇÃO
+  document.documentElement.dataset.theme = currentTheme;
   load();
   renderAll();
 })();
